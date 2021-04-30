@@ -1,11 +1,12 @@
 version: '3.9'
+# ref: https://docs.docker.com/compose/compose-file/compose-file-v3/
 services:
     web:
         build: .
         ports: 5000:8080
         # for live code-update.
         volumes:
-            - ./web/src:/usr/src/
+            - ./web:/app
 
     db:
 #        image: "mysql"
