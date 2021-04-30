@@ -1,14 +1,15 @@
-version: '3.9'
+version: '3'
 # ref: https://docs.docker.com/compose/compose-file/compose-file-v3/
 services:
     web:
         build: .
-        ports: 5000:8080
+        ports:
+            - "5000:8080"
         # for live code-update.
         volumes:
             - ./web:/app
 
-    db:
+#    db:
 #        image: "mysql"
 #        environment:
 #            MYSQL_ROOT_PASSWORD: password
