@@ -3,6 +3,8 @@ version: '3'
 services:
     web:
         build: .
+#        image: webapp:testtag
+        container_name: name0
         ports:
             - "5000:8080"
         # for live code-update.
