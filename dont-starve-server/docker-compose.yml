@@ -1,0 +1,10 @@
+version: '3'
+# ref: https://docs.docker.com/compose/compose-file/compose-file-v3/
+services:
+    server:
+        build: .
+        container_name: ds-server
+        ports:
+            - "10889:10889"
+        volumes:
+            - ./cluster-content:/root/.klei/DoNotStarveTogether/MyDediServer
