@@ -2,6 +2,7 @@
   - https://accounts.klei.com/account/game/config?game=DontStarveTogether
 
 # Then, Unzip and copy the Content within MyDediServer To cluster-content
+  - cluster-content/cluster_token.txt is gitignored, thus it is not present in the example.
 
 # TO RUN
 docker-compose up
