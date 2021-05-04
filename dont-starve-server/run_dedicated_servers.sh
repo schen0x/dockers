@@ -29,6 +29,7 @@ check_for_file "$dontstarve_dir/$cluster_name/Caves/server.ini"
 
 # ./steamcmd.sh +force_install_dir "$install_dir" +login anonymous +app_update 343050 validate +quit
 ./steamcmd.sh +force_install_dir "$install_dir" +login anonymous +app_update 343050 +quit
+echo 'ServerModSetup("378160973")\nServerModSetup("375859599")' >> $install_dir/mods/dedicated_server_mods_setup.lua 
 
 check_for_file "$install_dir/bin"
 
