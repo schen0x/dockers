@@ -44,6 +44,10 @@ do
 done 
 
 check_for_file "$install_dir/bin"
+check_for_file "$dontstarve_dir/$cluster_name/cluster.ini"
+check_for_file "$dontstarve_dir/$cluster_name/cluster_token.txt"
+check_for_file "$dontstarve_dir/$cluster_name/Master/server.ini"
+check_for_file "$dontstarve_dir/$cluster_name/Caves/server.ini"
 
 cd "$install_dir/bin" || fail
 
