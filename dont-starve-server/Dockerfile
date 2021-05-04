@@ -17,7 +17,7 @@ RUN chmod u+x /root/run_dedicated_servers.sh
 EXPOSE 10889
 # Add Mods
 RUN mkdir -p /root/dontstarvetogether_dedicated_server/mods/
-RUN touch /root/dontstarvetogether_dedicated_server/mods/edicated_server_mods_setup.lua 
+RUN touch /root/dontstarvetogether_dedicated_server/mods/dedicated_server_mods_setup.lua 
 # Health Info
 ARG MOD_PARAMS=ServerModSetup("375859599")
 RUN echo $MOD_PARAMS >> /root/dontstarvetogether_dedicated_server/mods/dedicated_server_mods_setup.lua 
