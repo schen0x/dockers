@@ -12,8 +12,9 @@ return {
 --#No More Respawn Penalty
 ["workshop-356420397"] = { enabled = true },
 --#Campfire Respawn
-["workshop-569043634"] = { enabled = true }
+["workshop-569043634"] = { enabled = true },
 --#Wormhole Marks [DST]
-["workshop-362175979"] = { enabled = true }
+["workshop-362175979"] = { enabled = true },
 --#Automatic chest sorting
 ["workshop-2321974509"] = { enabled = true }
+}
