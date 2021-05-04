@@ -9,3 +9,8 @@ docker-compose up
 
 # TO REBUILD
 docker-compose build
+
+# TO MANAGE MOD
+## modify the following files(make sure the 2 files are identical):
+  - cluster-content/Master/modoverrides.lua
+  - cluster-content/Caves/modoverrides.lua 
