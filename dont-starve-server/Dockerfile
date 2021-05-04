@@ -18,7 +18,7 @@ EXPOSE 10889
 # Add Mods
 # Health Info
 ARG MOD_PARAMS=ServerModSetup("375859599")
-RUN echo $MOD_PARAMS >> /root/dontstarvetogether_dedicated_server/mods/dedicated_server_mods_setup.lua
+RUN echo $MOD_PARAMS >> /root/dontstarvetogether_dedicated_server/mods/dedicated_server_mods_setup.lua 
 # CMD ls ~/
 # CMD ~/run_dedicated_servers.sh
 CMD ["bash", "/root/run_dedicated_servers.sh"]
