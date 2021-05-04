@@ -10,21 +10,22 @@ RUN mkdir -p /root/steamcmd/
 WORKDIR /root/steamcmd/
 RUN wget "https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz"
 RUN tar -xvzf steamcmd_linux.tar.gz
+
 # bind-mount the config inside
 RUN mkdir -p /root/.klei/DoNotStarveTogether/MyDediServer
-COPY ./run_dedicated_servers.sh /root/run_dedicated_servers.sh
 COPY ./run_dedicated_servers_preload.sh /root/run_dedicated_servers_preload.sh
-COPY ./cluster-content/Master/modoverrides.lua /root/modoverrides.lua
-RUN chmod u+x /root/run_dedicated_servers.sh
 RUN chmod u+x /root/run_dedicated_servers_preload.sh
-EXPOSE 10889
 # Steam related updateds, game contents update, everything other than Mod
 RUN bash /root/run_dedicated_servers_preload.sh
 
 # Add Mods
-RUN mkdir -p /root/dontstarvetogether_dedicated_server/mods/
-RUN touch /root/dontstarvetogether_dedicated_server/mods/dedicated_server_mods_setup.lua 
+# RUN mkdir -p /root/dontstarvetogether_dedicated_server/mods/
+# RUN touch /root/dontstarvetogether_dedicated_server/mods/dedicated_server_mods_setup.lua 
 # Global Position, Health Info
 # RUN echo $'ServerModSetup("378160973")\nServerModSetup("375859599")' > /root/dontstarvetogether_dedicated_server/mods/dedicated_server_mods_setup.lua 
 
+COPY ./run_dedicated_servers.sh /root/run_dedicated_servers.sh
+RUN chmod u+x /root/run_dedicated_servers.sh
+EXPOSE 10889
+COPY ./cluster-content/Master/modoverrides.lua /root/modoverrides.lua
 CMD ["bash", "/root/run_dedicated_servers.sh"]
