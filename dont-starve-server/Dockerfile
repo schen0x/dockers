@@ -16,11 +16,13 @@ COPY ./run_dedicated_servers.sh /root/run_dedicated_servers.sh
 COPY ./cluster-content/Master/modoverrides.lua /root/modoverrides.lua
 RUN chmod u+x /root/run_dedicated_servers.sh
 EXPOSE 10889
+# Steam related updateds, game contents update, everything other than Mod
+RUN bash /root/run_dedicated_servers_preload.sh
+
 # Add Mods
 RUN mkdir -p /root/dontstarvetogether_dedicated_server/mods/
 RUN touch /root/dontstarvetogether_dedicated_server/mods/dedicated_server_mods_setup.lua 
 # Global Position, Health Info
 # RUN echo $'ServerModSetup("378160973")\nServerModSetup("375859599")' > /root/dontstarvetogether_dedicated_server/mods/dedicated_server_mods_setup.lua 
-# CMD ls ~/
-# CMD ~/run_dedicated_servers.sh
+
 CMD ["bash", "/root/run_dedicated_servers.sh"]
