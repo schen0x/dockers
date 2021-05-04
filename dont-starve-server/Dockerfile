@@ -13,6 +13,7 @@ RUN tar -xvzf steamcmd_linux.tar.gz
 # bind-mount the config inside
 RUN mkdir -p /root/.klei/DoNotStarveTogether/MyDediServer
 COPY ./run_dedicated_servers.sh /root/run_dedicated_servers.sh
+COPY ./cluster-content/Master/modoverrides.lua /root/modoverrides.lua
 RUN chmod u+x /root/run_dedicated_servers.sh
 EXPOSE 10889
 # Add Mods
