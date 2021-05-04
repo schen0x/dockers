@@ -43,7 +43,7 @@ check_for_file "$dontstarve_dir/$cluster_name/Caves/server.ini"
 # echo "${modIDs[@]}" # value is not inserted
 #
 # so I stop bother
-cat ./modoverrides.lua | while read line
+cat /root/modoverrides.lua | while read line
 do
     if [[ $line == '["workshop-'* ]]
     then
