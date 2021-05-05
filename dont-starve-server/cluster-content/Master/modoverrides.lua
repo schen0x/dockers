@@ -15,6 +15,8 @@ return {
 ["workshop-569043634"] = { enabled = true },
 --#Wormhole Marks [DST]
 ["workshop-362175979"] = { enabled = true },
+--#Insight (Show Me+)
+["workshop-2189004162"] = { enabled = true },
 --#Automatic chest sorting
 ["workshop-2321974509"] = { enabled = true },
 --#Fast Travel

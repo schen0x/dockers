@@ -31,7 +31,9 @@ function check_for_file()
 #   ...
 # echo "${modIDs[@]}" # value is not inserted
 #
-# so I stop bother
+# so I stopped to bother. Every tested ID will be appended into the setup file subsequently.
+# the /root/modoverrides.lua is copied from cluster-content/Master/modoverrides.lua in the building stage
+# the cluster-content/* contains saves and is bind-mounted.
 cat /root/modoverrides.lua | while read line
 do
     if [[ $line == '["workshop-'* ]]
