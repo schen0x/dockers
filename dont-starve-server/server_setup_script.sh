@@ -7,7 +7,7 @@
 # echo ssh-rsa AA... youremail@example.com > /root/.ssh/authorized_keys
 # chmod 600 /root/.ssh/authorized_keys
 
-PKG_LISTS="docker docker-compose git vim"
+PKG_LISTS="docker docker-compose git vim tmux"
 if apt-get install -y $PKG_LISTS; then
     echo "$PKG_LISTS installed"
 else
@@ -18,5 +18,8 @@ cd ~/
 git clone https://github.com/schen0x/dockers.git
 cd ~/dockers/dont-starve-server/
 
-./setup-swap.sh
+echo "cd ~/dockers/dont-starve-server/" >> ~/.bash_profile
+
+chmod u+x ./setup-swap.sh
+
 docker-compose build
