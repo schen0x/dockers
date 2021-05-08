@@ -8,7 +8,8 @@
 # chmod 600 /root/.ssh/authorized_keys
 
 PKG_LISTS="docker docker-compose git vim"
-if apt-get install -y $PKG_LISTS then
+if apt-get install -y $PKG_LISTS; then
+    echo "$PKG_LISTS installed"
 else
     apt-get update -y && apt-get upgrade -y && apt-get install -y $PKG_LISTS
 fi
