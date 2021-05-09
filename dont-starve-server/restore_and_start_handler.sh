@@ -7,8 +7,9 @@ read -p "restoring save files for HOST: $HOST, Continue? (Y/N): " confirm && [[ 
 
 BACKUP_FILE_NAME="cluster_content_backup.zip"
 TMP_FOLDER="/tmp"
-TARGET_FOLDER="~/dockers/dont-starve-server/cluster-content"
+BASE_FOLDER="/root/dockers/dont-starve-server"
+TARGET_FOLDER="/root/dockers/dont-starve-server/cluster-content"
 if scp ./$BACKUP_FILE_NAME "$HOST:$TMP_FOLDER/$BACKUP_FILE_NAME"; then
-    ssh -t "$HOST" "cd ~/; tar -xvzf $TMP_FOLDER/$BACKUP_FILE_NAME -C $TARGET_FOLDER/; cd $TARGET_FOLDER/../; docker-compose up &"
-    ssh "$HOST" "cd $TARGET_FOLDER/../; nohup docker-compose up"
+    ssh -t "$HOST" "tar -xvzf $TMP_FOLDER/$BACKUP_FILE_NAME -C $TARGET_FOLDER/"
+    ssh "$HOST" "nohup docker-compose -f $BASE_FOLDER/docker-compose.yml up"
 fi

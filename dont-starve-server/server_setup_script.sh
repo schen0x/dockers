@@ -16,10 +16,11 @@ fi
 
 cd ~/
 git clone https://github.com/schen0x/dockers.git
-cd ~/dockers/dont-starve-server/
 
 echo "cd ~/dockers/dont-starve-server/" >> ~/.bash_profile
 
 chmod u+x ./setup-swap.sh
 
+cd ~/dockers/dont-starve-server/
+./setup_swap.sh 
 docker-compose build
