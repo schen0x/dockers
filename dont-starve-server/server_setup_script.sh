@@ -16,6 +16,8 @@ fi
 
 cd ~/
 git clone https://github.com/schen0x/dockers.git
+git clone https://github.com/schen0x/privateVPN.git
+sed -i 's/PASSWORD=/PASSWORD=<password>/g' ~/privateVPN/docker-compose.yml
 
 echo "cd ~/dockers/dont-starve-server/" >> ~/.bash_profile
 
