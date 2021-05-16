@@ -7,6 +7,8 @@
 # echo ssh-rsa AA... youremail@example.com > /root/.ssh/authorized_keys
 # chmod 600 /root/.ssh/authorized_keys
 
+sleep 5s
+
 PKG_LISTS="docker docker-compose git vim tmux"
 if apt-get install -y $PKG_LISTS; then
     echo "$PKG_LISTS installed"
@@ -17,11 +19,10 @@ fi
 cd ~/
 git clone https://github.com/schen0x/dockers.git
 git clone https://github.com/schen0x/privateVPN.git
-sed -i 's/PASSWORD=/PASSWORD=<password>/g' ~/privateVPN/docker-compose.yml
+sed -i 's/PASSWORD=.*/PASSWORD=<password>/g' ~/privateVPN/docker-compose.yml
 
 echo "cd ~/dockers/dont-starve-server/" >> ~/.bash_profile
 
 chmod u+x ~/dockers/dont-starve-server/setup-swap.sh
 
-cd ~/dockers/dont-starve-server/
-bash ~/dockers/dont-starve-server/setup-swap.sh && docker-compose build
+bash ~/dockers/dont-starve-server/setup-swap.sh && docker-compose -f ~/dockers/dont-starve-server/docker-compose.yml build
