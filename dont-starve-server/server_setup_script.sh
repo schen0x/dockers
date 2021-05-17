@@ -2,10 +2,11 @@
 # VPS server setup script, assume root
 
 # === [optional] setup-ssh keys, or use ssh-copy-id instead ===
-# mkdir -p /root/.ssh
-# chmod 700 /root/.ssh
-# echo ssh-rsa AA... youremail@example.com > /root/.ssh/authorized_keys
-# chmod 600 /root/.ssh/authorized_keys
+mkdir -p /root/.ssh
+chmod 700 /root/.ssh
+# echo ssh-ed25519 AAA... mail@mail.com > /root/.ssh/authorized_keys
+echo <sshPublicKey> > /root/.ssh/authorized_keys
+chmod 600 /root/.ssh/authorized_keys
 
 sleep 5s
 
@@ -17,12 +18,9 @@ else
 fi
 
 cd ~/
+DIR_ROOT=~/dockers/dont-starve-server
 git clone https://github.com/schen0x/dockers.git
-git clone https://github.com/schen0x/privateVPN.git
-sed -i 's/PASSWORD=.*/PASSWORD=<password>/g' ~/privateVPN/docker-compose.yml
 
-echo "cd ~/dockers/dont-starve-server/" >> ~/.bash_profile
+echo "cd $DIR_ROOT/" > ~/.bash_profile
 
-chmod u+x ~/dockers/dont-starve-server/setup-swap.sh
-
-bash ~/dockers/dont-starve-server/setup-swap.sh && docker-compose -f ~/dockers/dont-starve-server/docker-compose.yml build
+chmod u+x $DIR_ROOT/setup-swap.sh && bash $DIR_ROOT/setup-swap.sh && docker-compose -f $DIR_ROOT/docker-compose.yml build
