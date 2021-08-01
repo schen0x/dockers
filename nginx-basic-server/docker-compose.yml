@@ -1,0 +1,13 @@
+version: '3'
+# ref: https://docs.docker.com/compose/compose-file/compose-file-v3/
+services:
+    web:
+        build: .
+        # image: nginx:stable-alpine
+        container_name: nginx-stable-alpine
+        ports:
+            - "8083:80"
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf:ro
+            - ./nginx-content:/usr/share/nginx
+            - ./nginx-logs:/var/log/nginx
